@@ -1,4 +1,3 @@
-// Richiesta nomi squadre con valori predefiniti
 let first_team = prompt("Inserisci nome della prima squadra") || "Squadra A";
 let second_team = prompt("Inserisci nome della seconda squadra") || "Squadra B";
 
@@ -42,6 +41,10 @@ let startPenalties = () => {
     start_button.style.display = 'none';
     position_shoots_container.style.display = "flex";
     navbar.style.display = 'flex';
+    
+    navbar.querySelector(".first-team").innerHTML = first_team + " <br>";
+    navbar.querySelector(".second-team").innerHTML = second_team + " <br>";
+    
     selectTeam(turn % 2);
 
     position_shoots.forEach(button => {
