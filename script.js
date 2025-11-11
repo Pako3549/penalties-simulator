@@ -89,6 +89,34 @@ let startPenalties = () => {
     });
 };
 
+let resetGame = () => {
+    turn = 0;
+    penalties_first_team = [0, 0, 0, 0, 0];
+    penalties_second_team = [0, 0, 0, 0, 0];
+    
+    first_team = prompt("Inserisci nome della prima squadra") || "Squadra A";
+    second_team = prompt("Inserisci nome della seconda squadra") || "Squadra B";
+    
+    console.log("\n\n=== NUOVA PARTITA ===");
+    console.log(`Squadra 1: ${first_team}`);
+    console.log(`Squadra 2: ${second_team}`);
+    console.log("============================\n");
+    
+    navbar.querySelector(".first-team").innerHTML = first_team + " <br>";
+    navbar.querySelector(".second-team").innerHTML = second_team + " <br>";
+    team_turn.textContent = "Calci di rigore";
+    shoot_result.textContent = "";
+    shoot_result.style.display = "block";
+    position_shoots_container.style.display = "flex";
+    
+    position_shoots.forEach(button => button.disabled = false);
+    
+    const replay_button = document.querySelector(".replay-button");
+    if(replay_button) replay_button.remove();
+    
+    selectTeam(turn % 2);
+};
+
 let showResults = () => {
     position_shoots_container.style.display = "none";
     shoot_result.style.display = "none";
@@ -122,4 +150,10 @@ let showResults = () => {
     else team_turn.innerHTML += `Pareggio`;
 
     position_shoots.forEach(button => button.disabled = true);
+    
+    const replay_button = document.createElement("button");
+    replay_button.textContent = "Rigioca";
+    replay_button.className = "replay-button";
+    replay_button.onclick = resetGame;
+    document.querySelector("main").appendChild(replay_button);
 }
