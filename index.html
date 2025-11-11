@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <span class="first-team">Squadra A <br></span>
+        <span class="second-team">Squadra B <br></span>
+    </nav>
+
+    <main class="center-flex column">
+        <h1> Calci di rigore </h1>
+
+        <button onclick="startPenalties()"> Inizia </button>
+
+        <p class="result"></p>
+
+        <div class="position-shoot">
+            <button data-value="1"> Sinistra </button>
+            <button data-value="2"> Centro </button>
+            <button data-value="3"> Destra </button>
+        </div>
+
+        <div class="final-results center-flex">
+            <ul class="first-team"></ul>
+            <ul class="second-team"></ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
